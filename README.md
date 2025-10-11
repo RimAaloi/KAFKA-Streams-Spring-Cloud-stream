@@ -14,24 +14,43 @@ Développer un système de monitoring en temps réel qui affiche le nombre de vi
 - **API REST** pour simulation manuelle
 
 ### 📁 Structure du Code
+```
++---src
+|   +---main
+|   |   +---java
+|   |   |   \---org
+|   |   |       \---sid
+|   |   |           \---kafkaspringcloudstream
+|   |   |               |   KafkaSpringCloudStreamApplication.java
+|   |   |               |
+|   |   |               +---controllers
+|   |   |               |       PageEventController.java
+|   |   |               |
+|   |   |               +---events
+|   |   |               |       PageEvent.java
+|   |   |               |
+|   |   |               \---handlers
+|   |   |                       PageEventHandler.java
+|   |   |
+|   |   \---resources
+|   |       |   application.properties
+|   |       |
+|   |       +---static
+|   |       |       index.html
+|   |       |
+|   |       \---templates
 
+```
+### 📈 Fonctionnement
+1. Génération données : Le Supplier crée des événements de visite
+2. Traitement Stream : Kafka Streams compte les visites sur 5s
+3. Visualisation : Le dashboard affiche les métriques temps réel
+4. Interaction : Boutons pour simuler du trafic manuel
 
 ## 🖼️ Captures d'Écran
 
 ![Dashboard Principal](screenshots/img.png)
 
-### 🚀 Guide d'Installation
-1. Prérequis
-Java 17 ou supérieur
-Apache Kafka (avec Zookeeper)
-Maven 3.6+
-
-2. Démarrer Kafka
-# Option 1: Avec Docker
-docker-compose up -d
-# Option 2: Manuellement
-bin/zookeeper-server-start.sh config/zookeeper.properties
-bin/kafka-server-start.sh config/server.properties
 
 ### 🔧 Fonctionnement Détaillé
 1. Génération des Données
@@ -70,15 +89,44 @@ eventSource.onmessage = function(event) {
     updateDashboard(data);
 };
 ```
-📚 Concepts Maîtrisés
-Kafka Streams : Traitement de flux temps réel
+### 🚀 Guide d'Installation
+1. Prérequis :
+   
+Java 17 ou supérieur
 
-Spring Cloud Stream : Abstraction des messaging brokers
+Apache Kafka (avec Zookeeper)
 
-Fenêtres glissantes : Agrégation temporelle
+Maven 3.6+
 
-Server-Sent Events : Communication serveur→client
+2. Démarrer Kafka :
+   
+* Option 1: Avec Docker
+  
+docker-compose up -d
+* Option 2: Manuellement
+  
+bin/zookeeper-server-start.sh config/zookeeper.properties
 
-Architecture event-driven : Systèmes basés sur événements
-## 🏗️ Architecture Technique
+bin/kafka-server-start.sh config/server.properties
 
+## 📚 Ressources & Documentation
+
+### 📖 Documentation Officielle
+- [**Spring Cloud Stream Documentation**](https://spring.io/projects/spring-cloud-stream)
+  *Guide complet sur Spring Cloud Stream et l'intégration Kafka*
+
+- [**Kafka Streams Documentation**](https://kafka.apache.org/documentation/streams/)
+  *Documentation officielle Apache Kafka Streams*
+
+- [**Smoothie.js Documentation**](https://github.com/joewalnes/smoothie)
+  *Bibliothèque de graphiques temps réel pour JavaScript*
+
+### 🔗 Liens Utiles
+- [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+- [Kafka Official Website](https://kafka.apache.org/)
+- [MDN Web Docs - Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
+
+### 💌 Auteur
+
+👩‍💻 **Rim Aaloi**  
+💌 Contact: [GitHub Profile](https://github.com/RimAaloi) | [LinkedIn](https://www.linkedin.com/in/rim-aaloi/)  
